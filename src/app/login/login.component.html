@@ -1,0 +1,16 @@
+<div>
+  <form [formGroup]="loginForm" (ngSubmit)="login()" class="container w-25" >
+    <div class="mb-3">
+      <label for="usernameInput" class="form-label">Username</label>
+      <input  type="text" class="form-control" id="usernameInput" formControlName="usernameInput">
+    </div>
+    <div class="mb-3">
+      <label for="inputPassword" class="form-label" >Password</label>
+      <input type="password" class="form-control" id="inputPassword" formControlName="passwordInput" >
+    </div>
+    <div class="mb-3 d-flex flex-column align-items-center ">
+      <button type="submit" class="btn btn-primary w-100">Login</button>
+      <a class="m-2" href="#">Create account</a>
+    </div>
+  </form>
+</div>

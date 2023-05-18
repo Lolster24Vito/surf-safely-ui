@@ -1,0 +1,23 @@
+<div class="container mt-3">
+    <div *ngFor="let quiz of quizzes"
+   
+    (mouseenter)="onMouseEnter(hoverName)"
+    (mouseleave)="onMouseOut(hoverName)">
+        
+        <div class="card text-white bg-dark border-danger mt-5 quizCard" routerLink="/quiz/{{quiz.id}}">
+                
+                <div class="card-body">
+                    <h5 class="card-title"  #hoverName>{{quiz.title}}</h5>
+                    <p class="card-text">{{quiz.description}}</p>
+                </div>
+                <div class="card-footer">
+                    <span class="float-end"  #hoverName>{{quiz.author}}</span>
+                </div>
+           
+            </div>
+        
+        
+    </div>
+
+
+    
