@@ -2,6 +2,7 @@ import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Observable} from "rxjs";
 import {BASE_URL} from "../config/config";
+import { ApiResponseDto } from '../model/api-response-dto';
 
 
 export class UserDto {
@@ -29,7 +30,7 @@ export class LoginService {
   private apiUrl = `${BASE_URL}auth/login`;
   constructor(private http: HttpClient) { }
 
-  login(user: UserDto): Observable<any> {
-    return this.http.post<any>(this.apiUrl, user);
+  login(user: UserDto): Observable<ApiResponseDto> {
+    return this.http.post<ApiResponseDto>(this.apiUrl, user);
   }
 }

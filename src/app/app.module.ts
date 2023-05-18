@@ -9,7 +9,7 @@ import {LoginComponent} from './login/login.component';
 import {AppRoutingModule} from './app-routing.module';
 import {NgOptimizedImage} from "@angular/common";
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
-import {FormsModule} from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule} from "@angular/common/http";
 import { QuizListComponent } from './quiz-list/quiz-list.component';
 import { RouterModule } from '@angular/router';
@@ -32,6 +32,7 @@ import { QuizComponent } from './quiz/quiz.component';
     AppRoutingModule,
     NgOptimizedImage,
     FontAwesomeModule,
+    ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
     RouterModule.forRoot([

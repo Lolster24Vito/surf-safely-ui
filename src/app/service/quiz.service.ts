@@ -28,8 +28,8 @@ export class AnswerDTO {
   providedIn: 'root'
 })
 export class QuizService {
-  private apiAllQuizUrl = `${BASE_URL}quiz/allDto`;
-  private apiQuizByIdUrl = `${BASE_URL}quiz/dto/`;
+  private apiAllQuizUrl = `${BASE_URL}quiz/`;
+  private apiQuizByIdUrl = `${BASE_URL}quiz/`;
 
   private httpOptions = {
     headers: new HttpHeaders({
