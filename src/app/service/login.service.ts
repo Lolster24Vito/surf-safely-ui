@@ -4,20 +4,20 @@ import {Observable} from "rxjs";
 import {BASE_URL} from "../config/config";
 
 
-interface UserDto {
-  firstName?: string;
-  lastName?: string;
-  username: string;
-  password: string;
-  email?: string;
-  roleId?: number;
-}
-
 export class UserDto {
   firstName?: string;
   lastName?: string;
   username: string | undefined;
   password: string | undefined;
+  email?: string;
+  roleId?: number;
+}
+
+export interface UserDto {
+  firstName?: string;
+  lastName?: string;
+  username: string|undefined;
+  password: string|undefined;
   email?: string;
   roleId?: number;
 }

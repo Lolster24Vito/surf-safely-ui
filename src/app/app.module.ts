@@ -13,6 +13,7 @@ import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
 import { QuizListComponent } from './quiz-list/quiz-list.component';
 import { RouterModule } from '@angular/router';
+import { QuizComponent } from './quiz/quiz.component';
 
 
 
@@ -22,6 +23,7 @@ import { RouterModule } from '@angular/router';
     NavbarComponent,
     LoginComponent,
     QuizListComponent,
+    QuizComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,6 +37,7 @@ import { RouterModule } from '@angular/router';
     RouterModule.forRoot([
       { path: 'login', component: LoginComponent },
       { path: 'quiz-list', component: QuizListComponent },
+      { path: 'quiz/:id', component: QuizComponent }
     ]),
   ],
   providers: [],

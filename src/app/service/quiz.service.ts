@@ -9,7 +9,7 @@ export class QuizDTO {
   title!:string;
   description!:string;
   author!:string;
-  questions!:QuestionDTO[];
+  questionDtoList!:QuestionDTO[];
 }
 export class QuestionDTO {
   id!:number;
@@ -29,6 +29,7 @@ export class AnswerDTO {
 })
 export class QuizService {
   private apiAllQuizUrl = `${BASE_URL}quiz/allDto`;
+  private apiQuizByIdUrl = `${BASE_URL}quiz/dto/`;
 
   private httpOptions = {
     headers: new HttpHeaders({
@@ -41,6 +42,8 @@ export class QuizService {
   getQuizList(): Observable<ApiResponseDto> {
     return this.http.get<ApiResponseDto>(this.apiAllQuizUrl,this.httpOptions);
   }
-
+  getQuizById(id:number): Observable<ApiResponseDto> {
+    return this.http.get<ApiResponseDto>(this.apiQuizByIdUrl + id,this.httpOptions);
+  }
 
 }

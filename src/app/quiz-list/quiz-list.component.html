@@ -4,7 +4,7 @@
     (mouseenter)="onMouseEnter(hoverName)"
     (mouseleave)="onMouseOut(hoverName)">
         
-        <div class="card text-white bg-dark border-danger mt-5 quizCard" routerLink="/login">
+        <div class="card text-white bg-dark border-danger mt-5 quizCard" routerLink="/quiz/{{quiz.id}}">
                 
                 <div class="card-body">
                     <h5 class="card-title"  #hoverName>{{quiz.title}}</h5>
