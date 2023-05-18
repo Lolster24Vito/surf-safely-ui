@@ -11,6 +11,9 @@ import {NgOptimizedImage} from "@angular/common";
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
+import { QuizListComponent } from './quiz-list/quiz-list.component';
+import { RouterModule } from '@angular/router';
+
 
 
 @NgModule({
@@ -18,6 +21,7 @@ import {HttpClientModule} from "@angular/common/http";
     AppComponent,
     NavbarComponent,
     LoginComponent,
+    QuizListComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,7 +31,11 @@ import {HttpClientModule} from "@angular/common/http";
     NgOptimizedImage,
     FontAwesomeModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot([
+      { path: 'login', component: LoginComponent },
+      { path: 'quiz-list', component: QuizListComponent },
+    ]),
   ],
   providers: [],
   bootstrap: [AppComponent]
