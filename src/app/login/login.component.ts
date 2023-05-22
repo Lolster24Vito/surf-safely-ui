@@ -1,7 +1,8 @@
 import {Component} from '@angular/core';
-import {LoginService, UserDto} from "../service/login.service";
-import { FormGroup, FormControl, Validators, Form} from '@angular/forms'
-import { FormBuilder } from '@angular/forms'
+import {LoginService} from "../service/login.service";
+import {FormBuilder, FormGroup} from '@angular/forms'
+import {UserDto} from "../../model/user-dto";
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -9,35 +10,41 @@ import { FormBuilder } from '@angular/forms'
 })
 export class LoginComponent {
 
-  user = new UserDto();
+  user: UserDto = {
+    username: '',
+    password: ''
+  };
   token: string = '';
-  constructor(private loginService: LoginService,private formBuilder:FormBuilder) { }
-  
+
+  constructor(private loginService: LoginService, private formBuilder: FormBuilder) {
+  }
+
   loginForm!: FormGroup;
+
   ngOnInit() {
-    this.loginForm=this.formBuilder.group({
+    this.loginForm = this.formBuilder.group({
       usernameInput: [''],
-       passwordInput: ['']
-     });
+      passwordInput: ['']
+    });
   }
 
 
   login() {
 
-    this.user.username=this.loginForm.value.usernameInput;
-    this.user.password=this.loginForm.value.passwordInput;
-    
+    this.user.username = this.loginForm.value.usernameInput;
+    this.user.password = this.loginForm.value.passwordInput;
+
     this.loginService.login(this.user)
       .subscribe({
-        next: (response) => {
-          this.token = response.data.token;
-          localStorage.setItem('user_token', this.token);
-          //localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()) );
+          next: (response) => {
+            this.token = response.data.token;
+            localStorage.setItem('user_token', this.token);
+            //localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()) );
 
-        },
-        error: (e) => console.error(e)
-      }
+          },
+          error: (e) => console.error(e)
+        }
       );
-      
+
   }
 }

@@ -3,25 +3,7 @@ import {Injectable} from '@angular/core';
 import {Observable} from "rxjs";
 import {BASE_URL} from "../config/config";
 import { ApiResponseDto } from '../model/api-response-dto';
-
-
-export class UserDto {
-  firstName?: string;
-  lastName?: string;
-  username: string | undefined;
-  password: string | undefined;
-  email?: string;
-  roleId?: number;
-}
-
-export interface UserDto {
-  firstName?: string;
-  lastName?: string;
-  username: string|undefined;
-  password: string|undefined;
-  email?: string;
-  roleId?: number;
-}
+import {UserDto} from "../../model/user-dto";
 
 @Injectable({
   providedIn: 'root'
