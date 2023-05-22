@@ -33,4 +33,7 @@ export class LoginService {
   login(user: UserDto): Observable<ApiResponseDto> {
     return this.http.post<ApiResponseDto>(this.apiUrl, user);
   }
+  logout(){
+    localStorage.removeItem('user_token');
+  }
 }

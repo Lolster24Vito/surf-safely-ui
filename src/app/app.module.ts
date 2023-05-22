@@ -10,11 +10,11 @@ import {AppRoutingModule} from './app-routing.module';
 import {NgOptimizedImage} from "@angular/common";
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import {HttpClientModule} from "@angular/common/http";
+import {HttpClientModule,HTTP_INTERCEPTORS} from "@angular/common/http";
 import { QuizListComponent } from './quiz-list/quiz-list.component';
 import { RouterModule } from '@angular/router';
 import { QuizComponent } from './quiz/quiz.component';
-
+import { TokenInterceptorService } from './service/token-interceptor.service';
 
 
 @NgModule({
@@ -41,7 +41,11 @@ import { QuizComponent } from './quiz/quiz.component';
       { path: 'quiz/:id', component: QuizComponent }
     ]),
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+        useClass: TokenInterceptorService,
+        multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

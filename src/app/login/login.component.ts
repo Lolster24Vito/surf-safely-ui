@@ -29,7 +29,12 @@ export class LoginComponent {
     
     this.loginService.login(this.user)
       .subscribe({
-        next: (response) => this.token = response.data.token,
+        next: (response) => {
+          this.token = response.data.token;
+          localStorage.setItem('user_token', this.token);
+          //localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()) );
+
+        },
         error: (e) => console.error(e)
       }
       );
