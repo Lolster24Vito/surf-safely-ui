@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { QuizService,QuizDTO } from '../service/quiz.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute,Router } from '@angular/router';
+import { AuthenticationService } from '../service/authentication.service';
 
 @Component({
   selector: 'app-quiz',
@@ -11,7 +12,12 @@ export class QuizComponent {
   quiz!:QuizDTO;
   constructor(
     private route:ActivatedRoute,
-    private quizService:QuizService){}
+    private quizService:QuizService,
+    private authService:AuthenticationService,private router:Router){
+      if (!authService.isLoggedIn()) {
+        router.navigate(['login']);
+      }
+    }
    ngOnInit(): void {
     const routeParams = this.route.snapshot.paramMap;
     const productIdFromRoute = Number(routeParams.get('id'));
@@ -24,5 +30,8 @@ export class QuizComponent {
      this.quiz = data.data;
      console.log(this.quiz);
    });
+  }
+  getQuizAnswers(){
+
   }
 }

@@ -12,9 +12,10 @@ import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule,HTTP_INTERCEPTORS} from "@angular/common/http";
 import { QuizListComponent } from './quiz-list/quiz-list.component';
-import { RouterModule } from '@angular/router';
+import { RouterModule,Routes } from '@angular/router';
 import { QuizComponent } from './quiz/quiz.component';
 import { TokenInterceptorService } from './service/token-interceptor.service';
+import {CookieService} from 'ngx-cookie-service';
 
 
 @NgModule({
@@ -38,7 +39,7 @@ import { TokenInterceptorService } from './service/token-interceptor.service';
     RouterModule.forRoot([
       { path: 'login', component: LoginComponent },
       { path: 'quiz-list', component: QuizListComponent },
-      { path: 'quiz/:id', component: QuizComponent }
+      { path: 'quiz/:id', component: QuizComponent}
     ]),
   ],
   providers: [{
