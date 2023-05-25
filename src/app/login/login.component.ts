@@ -40,7 +40,7 @@ export class LoginComponent {
           this.token = response.data.token;
          //1 @param expires  Number of days until the cookies expires or an actual `Date`
           this.cookieService.set(USER_TOKEN_NAME, this.token,1);
-          this.router.navigate(['login']);
+          this.router.navigate(['']);
 
           //localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()) );
 
