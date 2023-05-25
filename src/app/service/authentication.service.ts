@@ -40,7 +40,6 @@ export class AuthenticationService {
    return this.http.get<ApiResponseDto>(this.apiLogoutUrl);
   }
   isLoggedIn(){
-    console.log(this.cookieService.get(USER_TOKEN_NAME).length);
     return this.cookieService.get(USER_TOKEN_NAME).length!==0;
   }
 }

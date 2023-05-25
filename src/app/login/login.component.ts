@@ -4,6 +4,7 @@ import { FormGroup, FormControl, Validators, Form} from '@angular/forms'
 import { FormBuilder } from '@angular/forms'
 import { CookieService } from 'ngx-cookie-service';
 import { USER_TOKEN_NAME } from '../config/config';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -13,7 +14,11 @@ export class LoginComponent {
 
   user = new UserDto();
   token: string = '';
-  constructor(private loginService: AuthenticationService,private formBuilder:FormBuilder,private cookieService:CookieService) { }
+  constructor(private loginService: AuthenticationService,
+    private formBuilder:FormBuilder,
+    private cookieService:CookieService,
+    private router:Router
+    ) { }
   
   loginForm!: FormGroup;
   ngOnInit() {
@@ -35,6 +40,7 @@ export class LoginComponent {
           this.token = response.data.token;
          //1 @param expires  Number of days until the cookies expires or an actual `Date`
           this.cookieService.set(USER_TOKEN_NAME, this.token,1);
+          this.router.navigate(['login']);
 
           //localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()) );
 

@@ -32,9 +32,9 @@
           <span>Profile</span>
         </a>
       </li>
-      <li class="nav-item">
+      <li class="nav-item" *ngIf="isLoggedIn()">
         <a class="nav-link d-flex flex-column align-items-center" (click)="logout()" href="#">
-          <fa-icon [icon]="faShield"/>
+          <fa-icon [icon]="faSignOut"/>
           <span>Logout</span>
         </a>
       </li>

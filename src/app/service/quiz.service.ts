@@ -24,13 +24,19 @@ export class AnswerDTO {
   isCorrect!:boolean;
   questionId!:number;
 }
+export class SolveAttemptDto{
+  answerIds!:number[];
+}
 
 @Injectable({
   providedIn: 'root'
 })
 export class QuizService {
+
   private apiAllQuizUrl = `${BASE_URL}quiz/all`;
   private apiQuizByIdUrl = `${BASE_URL}quiz/`;
+  private apiQuizSolve = `${BASE_URL}quiz/solve`;
+
 
  /* private httpOptions = {
     headers: new HttpHeaders({
@@ -46,6 +52,10 @@ export class QuizService {
   }
   getQuizById(id:number): Observable<ApiResponseDto> {
     return this.http.get<ApiResponseDto>(this.apiQuizByIdUrl + id);
+  }
+  submitQuizAnswers(answerIds: SolveAttemptDto) {
+    console.log("here in quizservice",answerIds);
+    return this.http.post<ApiResponseDto>(this.apiQuizSolve,answerIds);
   }
 
 }

@@ -5,18 +5,18 @@
     </div>
 
 
-
+    <div id="idk" [formGroup]="quizAnswerFormGroup"> 
 
     <div class="card border-danger mb-4" *ngFor="let question of quiz.questionDtoList;let i = index">
   
       <div class="d-flex justify-content-between align-items-center card-header text-white question-title" >
         <span>Question {{i+1}}</span>
       </div>
-        <div class="card-body bg-dark text-white ">
+        <div class="card-body bg-dark text-white">
           <p>{{question.questionText}}</p>
   
-          <div class="form-check" *ngFor="let answer of question.answerDtoList">
-            <input class="form-check-input" type="checkbox"  value="{{answer.id}}">
+          <div class="form-check" *ngFor="let answer of question.answerDtoList; let j=index">
+            <input class="form-check-input" type="checkbox" [formControlName]="'question-'+i+' answer-' + j" value="{{answer.id}}" >
             <label class="form-check-label">
               {{answer.text}}
             </label>
@@ -26,19 +26,19 @@
   
       
     </div>
-
+  </div>
   
     <h3 class="quiz-title">Result</h3>
   
     <div class="card">
       <div class="card-body">
-        <p id="result">No result.</p>
+        <p id="result">Correctly answered:{{quizCorrectPercentage.toFixed(2)}} %</p>
   
-        <div class="progress mb-2">
-          <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"  style="width: {{quizCorrectPercentage.toFixed(2)}}%"></div>
         </div>
   
-        <button type="button" class="btn btn-success">Submit</button>
+        <button type="button" class="btn btn-success" (click)="submitQuizAnswers()">Submit</button>
       </div>
     </div>
     
