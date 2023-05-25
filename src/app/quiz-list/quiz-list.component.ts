@@ -1,5 +1,7 @@
 import { Component,OnInit } from '@angular/core';
 import { QuizService,QuizDTO } from '../service/quiz.service';
+import { AuthenticationService } from '../service/authentication.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-quiz-list',
@@ -8,10 +10,19 @@ import { QuizService,QuizDTO } from '../service/quiz.service';
 })
 export class QuizListComponent implements OnInit {
   quizzes!:QuizDTO[];
- constructor(private quizService:QuizService){}
+  loggedIn:boolean = false;
+ constructor(private quizService:QuizService,private authService:AuthenticationService,private router:Router) {
+  if (!authService.isLoggedIn()) {
+    router.navigate(['login']);
+  }
+  else{
+    this.loggedIn=true;
+  }
+ }
   ngOnInit(): void {
+    if(this.loggedIn) {
     this.getQuizzes();
-    
+    }
  }
  private getQuizzes(){
   this.quizService.getQuizList().subscribe(data=>{

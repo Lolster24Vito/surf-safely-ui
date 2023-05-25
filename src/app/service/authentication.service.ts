@@ -1,8 +1,9 @@
 import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Observable} from "rxjs";
-import {BASE_URL} from "../config/config";
+import {BASE_URL, USER_TOKEN_NAME} from "../config/config";
 import { ApiResponseDto } from '../model/api-response-dto';
+import { CookieService } from 'ngx-cookie-service';
 
 
 export class UserDto {
@@ -26,11 +27,19 @@ export interface UserDto {
 @Injectable({
   providedIn: 'root'
 })
-export class LoginService {
-  private apiUrl = `${BASE_URL}auth/login`;
-  constructor(private http: HttpClient) { }
+export class AuthenticationService {
+  private apiLoginUrl = `${BASE_URL}auth/login`;
+  private apiLogoutUrl = `${BASE_URL}auth/logout`;
+
+  constructor(private http: HttpClient,private cookieService:CookieService) { }
 
   login(user: UserDto): Observable<ApiResponseDto> {
-    return this.http.post<ApiResponseDto>(this.apiUrl, user);
+    return this.http.post<ApiResponseDto>(this.apiLoginUrl, user);
+  }
+  logout(){
+   return this.http.get<ApiResponseDto>(this.apiLogoutUrl);
+  }
+  isLoggedIn(){
+    return this.cookieService.get(USER_TOKEN_NAME).length!==0;
   }
 }
