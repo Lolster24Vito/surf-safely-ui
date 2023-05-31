@@ -17,6 +17,7 @@ import { QuizComponent } from './quiz/quiz.component';
 import { TokenInterceptorService } from './service/token-interceptor.service';
 import {CookieService} from 'ngx-cookie-service';
 import { ScanComponent } from './scan/scan.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { ScanComponent } from './scan/scan.component';
     QuizListComponent,
     QuizComponent,
     ScanComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,7 +44,8 @@ import { ScanComponent } from './scan/scan.component';
       { path: 'login', component: LoginComponent },
       { path: 'quiz-list', component: QuizListComponent },
       { path: 'quiz/:id', component: QuizComponent},
-      { path:'scan',component: ScanComponent}
+      { path:'scan',component: ScanComponent},
+      { path:'profile',component: ProfileComponent}
     ]),
   ],
   providers: [{

@@ -4,6 +4,8 @@ import { ScanService } from '../service/scan.service';
 import { Stats } from '../model/checkFile/stats';
 import { Observable } from 'rxjs';
 import { timer  } from 'rxjs';
+import { Router } from '@angular/router';
+import { AuthenticationService } from '../service/authentication.service';
 
 @Component({
   selector: 'app-scan',
@@ -22,10 +24,18 @@ export class ScanComponent {
   fileScanned:boolean=false;
   scanFileClicked:boolean=false;
   scanFileSubscription:any;
-   constructor(private scanService: ScanService) {
+
+   constructor(private scanService: ScanService,private authenticationService: AuthenticationService,private router: Router){
+    if (this.authenticationService.isLoggedIn()) {
+      router.navigate(['login']);
+    }
   }
   ngOnDestroy(){
-    this.scanFileSubscription.unsubscribe();
+    if(this.scanFileSubscription){
+
+      console.log(this.scanFileSubscription,"susbcsription");
+      this.scanFileSubscription.unsubscribe();
+    }
   }
   //testing url virus https://testsafebrowsing.appspot.com/s/malware.html
   scanURL(){

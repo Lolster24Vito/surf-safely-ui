@@ -7,11 +7,11 @@ import { CookieService } from 'ngx-cookie-service';
 
 
 export class UserDto {
-  firstName?: string;
-  lastName?: string;
-  username: string | undefined;
-  password: string | undefined;
-  email?: string;
+  firstName?: string="";
+  lastName?: string="";
+  username: string | undefined="";
+  password: string | undefined="";
+  email?: string="";
   roleId?: number;
 }
 
@@ -30,6 +30,8 @@ export interface UserDto {
 export class AuthenticationService {
   private apiLoginUrl = `${BASE_URL}auth/login`;
   private apiLogoutUrl = `${BASE_URL}auth/logout`;
+  private apiGetCurrentUser = `${BASE_URL}current-user`;
+
 
   constructor(private http: HttpClient,private cookieService:CookieService) { }
 
@@ -41,5 +43,8 @@ export class AuthenticationService {
   }
   isLoggedIn(){
     return this.cookieService.get(USER_TOKEN_NAME).length!==0;
+  }
+  getCurrentUser(){
+    return this.http.get<ApiResponseDto>(this.apiGetCurrentUser);
   }
 }

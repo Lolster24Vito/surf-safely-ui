@@ -1,0 +1,21 @@
+<button (click)="getCurrentUser()">k</button>
+<div class="container main-container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-6">
+            <div class="text-center">
+                <img src="https://pbs.twimg.com/media/FoC-xKKaEAAPpGg.jpg" alt="Profile Picture" class="profile-picture">
+            </div>
+            <h2 class="text-center mt-3 text-white">User Profile</h2>
+            <div class="mt-4 profile-info">
+                <p><strong>First Name:</strong> {{currentUser.firstName}}</p>
+                <p><strong>Last Name:</strong> {{currentUser.lastName}}</p>
+                <p><strong>Username:</strong> {{currentUser.username}}</p>
+                <p><strong>Email:</strong> {{currentUser.email}}</p>
+            </div>
+            <div class="mt-4 mx-auto text-center">
+                <a href="#" class="btn me-4 btn-primary">Update Personal Information</a>
+                <a href="#" class="btn btn-danger">Delete Account</a>
+            </div>
+        </div>
+    </div>
+</div>
