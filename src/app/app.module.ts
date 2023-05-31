@@ -3,21 +3,21 @@ import {BrowserModule} from '@angular/platform-browser';
 
 import {AppComponent} from './app.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import {NavbarComponent} from './navbar/navbar.component';
+import {NavbarComponent} from './component/navbar/navbar.component';
 import {RouterOutlet} from "@angular/router";
-import {LoginComponent} from './login/login.component';
+import {LoginComponent} from './component/login/login.component';
 import {AppRoutingModule} from './app-routing.module';
 import {NgOptimizedImage} from "@angular/common";
 import {FontAwesomeModule} from '@fortawesome/angular-fontawesome';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {HttpClientModule,HTTP_INTERCEPTORS} from "@angular/common/http";
-import { QuizListComponent } from './quiz-list/quiz-list.component';
+import { QuizListComponent } from './component/quiz-list/quiz-list.component';
 import { RouterModule,Routes } from '@angular/router';
-import { QuizComponent } from './quiz/quiz.component';
+import { QuizComponent } from './component/quiz/quiz.component';
 import { TokenInterceptorService } from './service/token-interceptor.service';
 import {CookieService} from 'ngx-cookie-service';
-import { ScanComponent } from './scan/scan.component';
-import { ProfileComponent } from './profile/profile.component';
+import { ScanComponent } from './component/scan/scan.component';
+import { ProfileComponent } from './component/profile/profile.component';
 
 
 @NgModule({

@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {faClipboardQuestion, faCoffee, faHouse, faQuestion, faShield, faUser,faSignOut} from "@fortawesome/free-solid-svg-icons";
-import { AuthenticationService } from '../service/authentication.service';
+import { AuthenticationService } from '../../service/authentication.service';
 import { CookieService } from 'ngx-cookie-service';
 
 @Component({

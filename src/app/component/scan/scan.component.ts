@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { QuizService } from '../service/quiz.service';
-import { ScanService } from '../service/scan.service';
-import { Stats } from '../model/checkFile/stats';
+import { QuizService } from '../../service/quiz.service';
+import { ScanService } from '../../service/scan.service';
+import { Stats } from '../../model/checkFile/stats';
 import { Observable } from 'rxjs';
 import { timer  } from 'rxjs';
 import { Router } from '@angular/router';
-import { AuthenticationService } from '../service/authentication.service';
+import { AuthenticationService } from '../../service/authentication.service';
 
 @Component({
   selector: 'app-scan',

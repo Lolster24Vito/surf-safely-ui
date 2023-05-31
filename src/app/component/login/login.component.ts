@@ -1,9 +1,9 @@
 import {Component} from '@angular/core';
-import {AuthenticationService, UserDto} from "../service/authentication.service";
+import {AuthenticationService, UserDto} from "../../service/authentication.service";
 import { FormGroup, FormControl, Validators, Form} from '@angular/forms'
 import { FormBuilder } from '@angular/forms'
 import { CookieService } from 'ngx-cookie-service';
-import { USER_TOKEN_NAME } from '../config/config';
+import { USER_TOKEN_NAME } from '../../config/config';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
