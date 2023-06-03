@@ -18,6 +18,8 @@ import { TokenInterceptorService } from './service/token-interceptor.service';
 import {CookieService} from 'ngx-cookie-service';
 import { ScanComponent } from './component/scan/scan.component';
 import { ProfileComponent } from './component/profile/profile.component';
+import { UpdatePersonalInfoComponent } from './component/profile/update-personal-info/update-personal-info.component';
+import { DeleteAccountComponent } from './component/profile/delete-account/delete-account.component';
 
 
 @NgModule({
@@ -29,6 +31,8 @@ import { ProfileComponent } from './component/profile/profile.component';
     QuizComponent,
     ScanComponent,
     ProfileComponent,
+    UpdatePersonalInfoComponent,
+    DeleteAccountComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,7 +49,9 @@ import { ProfileComponent } from './component/profile/profile.component';
       { path: 'quiz-list', component: QuizListComponent },
       { path: 'quiz/:id', component: QuizComponent},
       { path:'scan',component: ScanComponent},
-      { path:'profile',component: ProfileComponent}
+      { path:'profile',component: ProfileComponent},
+      {path:'profile/update',component: UpdatePersonalInfoComponent},
+      {path:'profile/delete',component: DeleteAccountComponent}
     ]),
   ],
   providers: [{

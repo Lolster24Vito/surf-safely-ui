@@ -26,7 +26,7 @@ export class ScanComponent {
   scanFileSubscription:any;
 
    constructor(private scanService: ScanService,private authenticationService: AuthenticationService,private router: Router){
-    if (this.authenticationService.isLoggedIn()) {
+    if (!this.authenticationService.isLoggedIn()) {
       router.navigate(['login']);
     }
   }
