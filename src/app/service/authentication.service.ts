@@ -31,6 +31,8 @@ export class AuthenticationService {
   private apiLoginUrl = `${BASE_URL}auth/login`;
   private apiLogoutUrl = `${BASE_URL}auth/logout`;
   private apiGetCurrentUser = `${BASE_URL}current-user`;
+  private apiRegisterUrl = `${BASE_URL}auth/register`;
+
 
 
   constructor(private http: HttpClient,private cookieService:CookieService) { }
@@ -39,6 +41,7 @@ export class AuthenticationService {
     return this.http.post<ApiResponseDto>(this.apiLoginUrl, user);
   }
   logout(){
+    this.cookieService.delete('user_token');
    return this.http.get<ApiResponseDto>(this.apiLogoutUrl);
   }
   isLoggedIn(){
@@ -46,5 +49,8 @@ export class AuthenticationService {
   }
   getCurrentUser(){
     return this.http.get<ApiResponseDto>(this.apiGetCurrentUser);
+  }
+  register(user:UserDto){
+    return this.http.post<ApiResponseDto>(this.apiRegisterUrl, user);
   }
 }

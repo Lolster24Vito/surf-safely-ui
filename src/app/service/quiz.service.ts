@@ -57,5 +57,8 @@ export class QuizService {
     console.log("here in quizservice",answerIds);
     return this.http.post<ApiResponseDto>(this.apiQuizSolve,answerIds);
   }
+  saveQuiz(quizDto:QuizDTO) {
+  console.log("add quiz",quizDto)
+  }
 
 }

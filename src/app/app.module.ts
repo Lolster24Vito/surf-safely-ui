@@ -20,6 +20,7 @@ import { ScanComponent } from './component/scan/scan.component';
 import { ProfileComponent } from './component/profile/profile.component';
 import { UpdatePersonalInfoComponent } from './component/profile/update-personal-info/update-personal-info.component';
 import { DeleteAccountComponent } from './component/profile/delete-account/delete-account.component';
+import { RegisterComponent } from './component/register/register.component';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { DeleteAccountComponent } from './component/profile/delete-account/delet
     ProfileComponent,
     UpdatePersonalInfoComponent,
     DeleteAccountComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,8 +53,9 @@ import { DeleteAccountComponent } from './component/profile/delete-account/delet
       { path:'scan',component: ScanComponent},
       { path:'profile',component: ProfileComponent},
       {path:'profile/update',component: UpdatePersonalInfoComponent},
-      {path:'profile/delete',component: DeleteAccountComponent}
-    ]),
+      {path:'profile/delete',component: DeleteAccountComponent},
+      {path:'register',component: RegisterComponent},
+    ],{onSameUrlNavigation: 'reload'}),
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
