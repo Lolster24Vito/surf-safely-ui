@@ -1,0 +1,15 @@
+.profile-picture {
+    border: 2px solid red;
+    border-radius: 10%;
+    width: 150px;
+    height: 150px;
+}
+
+.profile-info {
+    color: white;
+    margin-left: 35%;
+}
+
+.main-container {
+    padding: 20px;
+}

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { QuizService,QuizDTO,SolveAttemptDto } from '../service/quiz.service';
+import { QuizService,QuizDTO,SolveAttemptDto } from '../../service/quiz.service';
 import { ActivatedRoute,Router } from '@angular/router';
-import { AuthenticationService } from '../service/authentication.service';
+import { AuthenticationService } from '../../service/authentication.service';
 import { FormArray, FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
 @Component({
