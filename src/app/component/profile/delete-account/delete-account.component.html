@@ -1,1 +1,20 @@
-<p>delete-account works!</p>
+<div class="container main-container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-6">
+
+            <h2 class="text-center mt-3 text-white">Delete account</h2>
+            <div class="mt-4 profile-info">
+                <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">{{currentUser.username}}</h5>
+                      <p class="card-text">Are you sure you want to delete your account?</p>
+                      <button class="btn btn-danger me-4" (click)="deleteAccount()">Delete</button>
+                      <a class="btn btn-info me-4" href="profile" >Go back</a>
+
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+    
+</div>

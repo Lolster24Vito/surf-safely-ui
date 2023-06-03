@@ -1,6 +1,6 @@
 import { Component,OnInit } from '@angular/core';
 import { QuizService,QuizDTO } from '../../service/quiz.service';
-import { AuthenticationService } from '../../service/authentication.service';
+import { AuthenticationService, UserDto } from '../../service/authentication.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,12 +11,14 @@ import { Router } from '@angular/router';
 export class QuizListComponent implements OnInit {
   quizzes!:QuizDTO[];
   loggedIn:boolean = false;
+  user!:UserDto;
  constructor(private quizService:QuizService,private authService:AuthenticationService,private router:Router) {
   if (!authService.isLoggedIn()) {
     router.navigate(['login']);
   }
   else{
     this.loggedIn=true;
+    this.authService.getCurrentUser().subscribe(response =>this.user=response.data);
   }
  }
   ngOnInit(): void {

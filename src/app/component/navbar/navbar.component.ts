@@ -21,7 +21,7 @@ export class NavbarComponent {
   logout(){
     this.loginService.logout().subscribe({
       next: (response) => {
-          this.cookieService.delete('user_token');
+        console.log(response);
       },
       error: (e) => console.error(e)
     }
