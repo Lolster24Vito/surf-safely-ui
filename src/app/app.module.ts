@@ -20,7 +20,9 @@ import { ScanComponent } from './component/scan/scan.component';
 import { ProfileComponent } from './component/profile/profile.component';
 import { UpdatePersonalInfoComponent } from './component/profile/update-personal-info/update-personal-info.component';
 import { DeleteAccountComponent } from './component/profile/delete-account/delete-account.component';
+import { QuizAddComponent } from './component/quiz-add/quiz-add.component';
 import { RegisterComponent } from './component/register/register.component';
+
 
 
 @NgModule({
@@ -34,6 +36,8 @@ import { RegisterComponent } from './component/register/register.component';
     ProfileComponent,
     UpdatePersonalInfoComponent,
     DeleteAccountComponent,
+    QuizAdd
+    QuizAddComponent,
     RegisterComponent,
   ],
   imports: [
@@ -49,11 +53,13 @@ import { RegisterComponent } from './component/register/register.component';
     RouterModule.forRoot([
       { path: 'login', component: LoginComponent },
       { path: 'quiz-list', component: QuizListComponent },
+      { path:'quiz/add',component: QuizAddComponent},
       { path: 'quiz/:id', component: QuizComponent},
       { path:'scan',component: ScanComponent},
       { path:'profile',component: ProfileComponent},
       {path:'profile/update',component: UpdatePersonalInfoComponent},
       {path:'profile/delete',component: DeleteAccountComponent},
+
       {path:'register',component: RegisterComponent},
     ],{onSameUrlNavigation: 'reload'}),
   ],
