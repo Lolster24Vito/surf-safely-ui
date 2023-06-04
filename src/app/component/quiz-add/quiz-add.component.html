@@ -1,21 +1,24 @@
+<div class="container w-25">
 <form [formGroup]="quizForm" class="quizForm" (ngSubmit)="onSubmit()">
-  <input type="text" formControlName="title" placeholder="title">
-  <input type="text" formControlName="description" placeholder="description">
+  <label class="form-label">Quiz title</label>
+  <input class="form-control" type="text" id="title" formControlName="title" placeholder="title" >
+  <label class="form-label">Quiz description</label>
+  <input class="form-control" type="text" formControlName="description" placeholder="description">
 
   <div formArrayName="questionDtoList">
     <div *ngFor="let question of questions().controls; let questionIndex=index">
-      <div [formGroupName]="questionIndex" style="border: 1px solid blue; padding: 10px; width: 600px; margin: 5px;">
-        {{questionIndex}}
+      <div [formGroupName]="questionIndex" style="border: 1px solid red; padding: 10px; margin: 5px;">
+        {{questionIndex+1}}.
         Question text :
-        <input type="text" formControlName="questionText"> 
+        <input type="text" class="form-control" formControlName="questionText"> 
         <button (click)="removeQuestion(questionIndex)">Remove</button>
         <div formArrayName="answerDtoList">
           <div *ngFor="let answer of questionAnswers(questionIndex).controls; let answerIndex=index">
             <div [formGroupName]="answerIndex">
-              {{answerIndex}}
+              {{answerIndex+1}}.
               Answer :
               <input type="text" formControlName="text">
-              Exp:
+              Correct:
               <input type="checkbox" formControlName="isCorrect">
  
               <button (click)="removedQuestionAnswer(questionIndex,answerIndex)">Remove</button>
@@ -31,3 +34,5 @@
   </div>
   <button type="submit">Submit</button>
   </form>
+    
+</div>

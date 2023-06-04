@@ -36,7 +36,6 @@ import { RegisterComponent } from './component/register/register.component';
     ProfileComponent,
     UpdatePersonalInfoComponent,
     DeleteAccountComponent,
-    QuizAdd
     QuizAddComponent,
     RegisterComponent,
   ],
@@ -59,7 +58,6 @@ import { RegisterComponent } from './component/register/register.component';
       { path:'profile',component: ProfileComponent},
       {path:'profile/update',component: UpdatePersonalInfoComponent},
       {path:'profile/delete',component: DeleteAccountComponent},
-
       {path:'register',component: RegisterComponent},
     ],{onSameUrlNavigation: 'reload'}),
   ],
