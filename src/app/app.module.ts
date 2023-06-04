@@ -21,6 +21,8 @@ import { ProfileComponent } from './component/profile/profile.component';
 import { UpdatePersonalInfoComponent } from './component/profile/update-personal-info/update-personal-info.component';
 import { DeleteAccountComponent } from './component/profile/delete-account/delete-account.component';
 import { QuizAddComponent } from './component/quiz-add/quiz-add.component';
+import { RegisterComponent } from './component/register/register.component';
+
 
 
 @NgModule({
@@ -34,7 +36,9 @@ import { QuizAddComponent } from './component/quiz-add/quiz-add.component';
     ProfileComponent,
     UpdatePersonalInfoComponent,
     DeleteAccountComponent,
+    QuizAdd
     QuizAddComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,7 +59,9 @@ import { QuizAddComponent } from './component/quiz-add/quiz-add.component';
       { path:'profile',component: ProfileComponent},
       {path:'profile/update',component: UpdatePersonalInfoComponent},
       {path:'profile/delete',component: DeleteAccountComponent},
-    ]),
+
+      {path:'register',component: RegisterComponent},
+    ],{onSameUrlNavigation: 'reload'}),
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
