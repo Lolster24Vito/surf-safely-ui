@@ -39,6 +39,7 @@ export class AuthenticationService {
     return this.http.post<ApiResponseDto>(this.apiLoginUrl, user);
   }
   logout(){
+    this.cookieService.delete('user_token');
    return this.http.get<ApiResponseDto>(this.apiLogoutUrl);
   }
   isLoggedIn(){

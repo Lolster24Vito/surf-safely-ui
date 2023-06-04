@@ -36,6 +36,7 @@ export class QuizService {
   private apiAllQuizUrl = `${BASE_URL}quiz/all`;
   private apiQuizByIdUrl = `${BASE_URL}quiz/`;
   private apiQuizSolve = `${BASE_URL}quiz/solve`;
+  private apiSaveQuiz = `${BASE_URL}quiz/create`;
 
 
  /* private httpOptions = {
@@ -57,5 +58,8 @@ export class QuizService {
     console.log("here in quizservice",answerIds);
     return this.http.post<ApiResponseDto>(this.apiQuizSolve,answerIds);
   }
-
+  saveQuiz(quizDto:QuizDTO){
+    console.log("Here in save quiz",quizDto);
+    return this.http.post<ApiResponseDto>(this.apiSaveQuiz,quizDto);
+  }
 }
