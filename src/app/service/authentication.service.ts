@@ -23,6 +23,10 @@ export interface UserDto {
   email?: string;
   roleId?: number;
 }
+export interface ChangePasswordDto{
+  oldPassword:string;
+  newPassword: string;   
+}
 
 @Injectable({
   providedIn: 'root'
@@ -32,7 +36,7 @@ export class AuthenticationService {
   private apiLogoutUrl = `${BASE_URL}auth/logout`;
   private apiGetCurrentUser = `${BASE_URL}current-user`;
   private apiRegisterUrl = `${BASE_URL}auth/register`;
-
+  private apiChangePasswordUrl=`${BASE_URL}auth/change-password`;
 
 
   constructor(private http: HttpClient,private cookieService:CookieService) { }
@@ -52,5 +56,8 @@ export class AuthenticationService {
   }
   register(user:UserDto){
     return this.http.post<ApiResponseDto>(this.apiRegisterUrl, user);
+  }
+  changePassword(changePasswordDto:ChangePasswordDto){
+    return this.http.post<ApiResponseDto>(this.apiChangePasswordUrl, changePasswordDto);
   }
 }

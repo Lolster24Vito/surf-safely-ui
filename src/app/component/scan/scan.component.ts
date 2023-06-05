@@ -53,7 +53,9 @@ export class ScanComponent {
       console.log(this.urlResponseMessage);
 
     },
-    error: (e) => console.error(e)
+    error: (e) => {console.error(e);
+    alert(e.urlResponseMessage);
+    }
   }
   );
     

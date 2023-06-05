@@ -23,6 +23,7 @@ import { DeleteAccountComponent } from './component/profile/delete-account/delet
 import { QuizAddComponent } from './component/quiz-add/quiz-add.component';
 import { RegisterComponent } from './component/register/register.component';
 import { LeaderboardComponent } from './component/leaderboard/leaderboard.component';
+import { ChangePasswordComponent } from './component/profile/change-password/change-password.component';
 
 
 
@@ -40,6 +41,7 @@ import { LeaderboardComponent } from './component/leaderboard/leaderboard.compon
     QuizAddComponent,
     RegisterComponent,
     LeaderboardComponent,
+    ChangePasswordComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,6 +62,7 @@ import { LeaderboardComponent } from './component/leaderboard/leaderboard.compon
       { path:'profile',component: ProfileComponent},
       {path:'profile/update',component: UpdatePersonalInfoComponent},
       {path:'profile/delete',component: DeleteAccountComponent},
+      {path:'profile/change-password',component: ChangePasswordComponent},
       {path:'register',component: RegisterComponent},
       {path:'leaderboard',component: LeaderboardComponent}
 

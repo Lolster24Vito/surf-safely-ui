@@ -46,7 +46,10 @@ export class LoginComponent {
           //localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()) );
 
         },
-        error: (e) => console.error(e)
+        error: (e) => {
+          console.error(e);
+        alert("Error: " + e.message);
+        }
       }
       );
       
