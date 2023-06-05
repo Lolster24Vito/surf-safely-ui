@@ -40,6 +40,14 @@ export class QuizListComponent implements OnInit {
 onMouseOut(hoverName: HTMLElement) {
   hoverName.style.color = "white";
 }
+deleteQuiz(id:number){
+  this.quizService.deleteQuiz(id).subscribe({
+    next: (response) => {
+      location.reload();
+    },
+    error: (e) => console.error(e)
+  });
+}
 
 
 }

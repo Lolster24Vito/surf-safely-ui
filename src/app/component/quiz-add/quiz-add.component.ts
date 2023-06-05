@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthenticationService,UserDto } from 'src/app/service/authentication.service';
 import { QuizDTO, QuizService } from 'src/app/service/quiz.service';
 
@@ -11,7 +12,7 @@ import { QuizDTO, QuizService } from 'src/app/service/quiz.service';
 export class QuizAddComponent {
   quizForm:FormGroup;
   currentUser!:UserDto;
-  constructor(private fb: FormBuilder,private quizService: QuizService,private authService:AuthenticationService) {
+  constructor(private fb: FormBuilder,private quizService: QuizService,private authService:AuthenticationService,private router:Router) {
     this.quizForm = this.fb.group({
       title: ['',{validators: [Validators.required],},
     ],
@@ -60,7 +61,7 @@ onSubmit() {
   console.log(quizDtoClass,"classsss");
   this.quizService.saveQuiz(quizDtoClass).subscribe({
     next: (response) => {
-     console.log(response);
+      this.router.navigate(['/quiz-list']);
     },
     error: (e) => console.error(e)
   }
