@@ -37,6 +37,7 @@ export class QuizService {
   private apiQuizByIdUrl = `${BASE_URL}quiz/`;
   private apiQuizSolve = `${BASE_URL}quiz/solve`;
   private apiSaveQuiz = `${BASE_URL}quiz/create`;
+  private apiDeleteQuiz = `${BASE_URL}quiz/delete/`;
 
 
  /* private httpOptions = {
@@ -61,6 +62,9 @@ export class QuizService {
   saveQuiz(quizDto:QuizDTO){
     console.log("Here in save quiz",quizDto);
     return this.http.post<ApiResponseDto>(this.apiSaveQuiz,quizDto);
+  }
+  deleteQuiz(id:number): Observable<ApiResponseDto>{
+    return this.http.delete<ApiResponseDto>(this.apiDeleteQuiz+id);
   }
 
 }

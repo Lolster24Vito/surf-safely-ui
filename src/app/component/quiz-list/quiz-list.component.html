@@ -1,6 +1,6 @@
 <div class="container mt-3">
-    <a *ngIf="user.roleId==1" type="button" class="btn btn-info" routerLink="/quiz/add">add quiz</a>
-    <div *ngFor="let quiz of quizzes"
+    <a *ngIf="user!=undefined &&user.roleId==1" type="button" class="btn btn-info" routerLink="/quiz/add">add quiz</a>
+    <div *ngFor="let quiz of quizzes;"
    
     (mouseenter)="onMouseEnter(hoverName)"
     (mouseleave)="onMouseOut(hoverName)">
@@ -14,11 +14,11 @@
                 <div class="card-footer">
                     <span class="float-end"  #hoverName>{{quiz.author}}</span>
                 </div>
-           
             </div>
+            <a class="btn btn-primary" *ngIf="user!=undefined &&user.roleId==1" (click)="deleteQuiz(quiz.id)">deleteQuiz</a>
         
         
     </div>
-
+</div>
 
     
