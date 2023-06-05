@@ -5,3 +5,6 @@
 .question-title{
     background-color: #1A3C4F !important;
 }
+.btn{ 
+    margin-top:10px ;
+    background-color: #1A3C4F; color: white; border-radius: 15px; border: none}

@@ -1,0 +1,21 @@
+<div class="container">
+
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Username</th>
+        <th scope="col">Total points earned</th>
+      </tr>
+    </thead>
+    <tbody>
+
+        <tr *ngFor="let leaderboardRow of leaderboardRows">
+            <th scope="row">{{leaderboardRow.ranking}}</th>
+            <td>{{leaderboardRow.username}}</td>
+        <td>{{leaderboardRow.totalPoints}}</td>
+    </tr>
+    
+</tbody>
+</table>
+</div>

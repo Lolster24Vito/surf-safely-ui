@@ -1,4 +1,4 @@
-<div class="container w-25">
+<div class="container w-50">
 <form [formGroup]="quizForm" class="quizForm" (ngSubmit)="onSubmit()">
   <label class="form-label">Quiz title</label>
   <input class="form-control" type="text" id="title" formControlName="title" placeholder="title" >
@@ -11,7 +11,7 @@
         {{questionIndex+1}}.
         Question text :
         <input type="text" class="form-control" formControlName="questionText"> 
-        <button (click)="removeQuestion(questionIndex)">Remove</button>
+        <button (click)="removeQuestion(questionIndex)" class="btn btn-danger">Remove question</button>
         <div formArrayName="answerDtoList">
           <div *ngFor="let answer of questionAnswers(questionIndex).controls; let answerIndex=index">
             <div [formGroupName]="answerIndex">
@@ -21,18 +21,18 @@
               Correct:
               <input type="checkbox" formControlName="isCorrect">
  
-              <button (click)="removedQuestionAnswer(questionIndex,answerIndex)">Remove</button>
+              <button (click)="removedQuestionAnswer(questionIndex,answerIndex)" class="btn btn-danger" id="removeAnswer">Remove answer</button>
  
             </div>
             
           </div>
-          <button type="button" (click)="addQuestionAnswer(questionIndex)">Add answer</button>
+          <button type="button" class="btn btnBlue" (click)="addQuestionAnswer(questionIndex)">Add answer</button>
           </div>
         </div>
     </div>
-    <button type="button" (click)="addQuestion()">Add question</button>
+    <button type="button" class="btn btnBlue" (click)="addQuestion()">Add question</button>
   </div>
-  <button type="submit">Submit</button>
+  <button type="submit" class="btn btn-success mt-5">Submit</button>
   </form>
     
 </div>
