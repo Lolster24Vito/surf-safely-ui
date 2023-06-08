@@ -10,7 +10,9 @@
             <img  src="{{avatar.photo}}" class="card-img-top" alt="Card image cap">
             <div class="card-body text-center">
                 
-                <p (click)="setProfilePicture(avatar.id)" class=" btn btn-primary card-text">Set as profile</p>
+                <p *ngIf="userAvatar.id!=avatar.id" (click)="setProfilePicture(avatar.id)" class=" btn btn-primary card-text">Set as profile</p>
+                <p *ngIf="userAvatar.id==avatar.id" class=" card-text">Your profile picture</p>
+
             </div>
         </div>
     </div>

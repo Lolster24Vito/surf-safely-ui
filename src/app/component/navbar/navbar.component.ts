@@ -20,6 +20,7 @@ export class NavbarComponent implements OnInit {
   protected readonly faSignOut = faSignOut;
   protected readonly faRankingStar=faRankingStar;
   userPoints:number=0;
+  username:string="";
   constructor(private loginService: AuthenticationService,
     private cookieService:CookieService,private currentUserService:CurrentUserService){
    
@@ -33,6 +34,13 @@ export class NavbarComponent implements OnInit {
     error:(e)=>console.error(e)
   }
     );
+    this.currentUserService.getCurrentUser().subscribe({
+      next:(response)=>{
+        console.log(response.data.username);
+        this.username=response.data.username;
+    },
+    error:(e)=>console.error(e)
+    })
   }
   logout(){
     this.loginService.logout().subscribe({
