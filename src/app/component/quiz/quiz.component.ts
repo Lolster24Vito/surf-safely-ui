@@ -88,7 +88,13 @@ export class QuizComponent {
       next: (response) => {
         console.log(response);
         this.quizCorrectPercentage=response.data.correctnessPercentage*100;
+        let pointsNumber=Math.trunc(response.data.correctnessPercentage*100);
         this.quizPointsEarned=Math.trunc(response.data.correctnessPercentage*100);
+        let currentPointsString=document.getElementById('points')!.innerHTML;
+        if(currentPointsString!=undefined){
+          let points=Number(currentPointsString)+pointsNumber;
+          document.getElementById('points')!.innerHTML=points.toString();
+        }
       },
       error: (e) => console.error(e)
     }
