@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
-
+import { CommonModule } from '@angular/common';
 import {AppComponent} from './app.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {NavbarComponent} from './component/navbar/navbar.component';
@@ -24,6 +24,7 @@ import { QuizAddComponent } from './component/quiz-add/quiz-add.component';
 import { RegisterComponent } from './component/register/register.component';
 import { LeaderboardComponent } from './component/leaderboard/leaderboard.component';
 import { ChangePasswordComponent } from './component/profile/change-password/change-password.component';
+import { AvatarChooseComponent } from './component/profile/avatar-choose/avatar-choose.component';
 
 
 
@@ -42,8 +43,10 @@ import { ChangePasswordComponent } from './component/profile/change-password/cha
     RegisterComponent,
     LeaderboardComponent,
     ChangePasswordComponent,
+    AvatarChooseComponent,
   ],
   imports: [
+    CommonModule,
     BrowserModule,
     NgbModule,
     RouterOutlet,
@@ -63,6 +66,7 @@ import { ChangePasswordComponent } from './component/profile/change-password/cha
       {path:'profile/update',component: UpdatePersonalInfoComponent},
       {path:'profile/delete',component: DeleteAccountComponent},
       {path:'profile/change-password',component: ChangePasswordComponent},
+      {path:'profile/avatar-choose',component: AvatarChooseComponent},
       {path:'register',component: RegisterComponent},
       {path:'leaderboard',component: LeaderboardComponent}
 

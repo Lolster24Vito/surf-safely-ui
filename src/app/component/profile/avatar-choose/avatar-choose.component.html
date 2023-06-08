@@ -1,0 +1,33 @@
+<div class="container">
+    <h2>
+        Your profile pictures
+    </h2>
+    <div class="row">
+
+    <div *ngFor="let avatar of userAvatars" class="col">
+
+        <div class="card" style="width: 18rem;">
+            <img  src="{{avatar.photo}}" class="card-img-top" alt="Card image cap">
+            <div class="card-body text-center">
+                
+                <p (click)="setProfilePicture(avatar.id)" class=" btn btn-primary card-text">Set as profile</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <h2 class="mt-5">Buy profile pictures</h2>
+    <div class="row">
+    <div *ngFor="let avatar of avatarsToBuy" class="col">
+
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="{{avatar.photo}}" alt="Card image cap">
+            <div class="card-body text-center">
+              <p>Price:{{avatar.price}} points</p>
+              <p (click)="buyAvatar(avatar.id)" class="btn btn-success card-text">Buy profile picture</p>
+            </div>
+        </div>
+    </div>
+</div>
+<h4 class="text-center text-danger ">{{errorMessage}}</h4>
+</div>

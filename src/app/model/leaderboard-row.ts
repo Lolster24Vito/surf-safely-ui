@@ -1,5 +1,10 @@
 export class LeaderboardRow {
     username:string="";
-    ranking!:number;
     totalPoints!:number;
+}
+export class UserPoints{
+    id!: number;
+    userId!: number;
+    score!: number;
+    money!: number;
 }

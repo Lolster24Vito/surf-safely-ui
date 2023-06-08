@@ -31,9 +31,6 @@
       <div class="mb-3">
         <label for="confirmPasswordInput" class="form-label">Confirm Password</label>
         <input type="password" class="form-control" id="confirmPasswordInput" formControlName="confirmPassword">
-        <div *ngIf="registerForm.controls['confirmPassword'].invalid && registerForm.controls['confirmPassword'].touched" class="text-danger">
-            Confirm Password is required.
-          </div>
           <div *ngIf="registerForm.hasError('passwordMismatch') && registerForm.controls['confirmPassword'].touched" class="text-danger">
             Passwords do not match.
           </div>
