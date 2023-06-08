@@ -10,8 +10,8 @@
     </thead>
     <tbody>
 
-        <tr *ngFor="let leaderboardRow of leaderboardRows">
-            <th scope="row">{{leaderboardRow.ranking}}</th>
+        <tr *ngFor="let leaderboardRow of leaderboardRows;let i=index">
+            <th scope="row">{{i+1}}</th>
             <td>{{leaderboardRow.username}}</td>
         <td>{{leaderboardRow.totalPoints}}</td>
     </tr>

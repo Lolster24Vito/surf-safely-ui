@@ -14,10 +14,10 @@ import { AuthenticationService } from '../../service/authentication.service';
 })
 export class ScanComponent {
   urlInput!: string;
-  urlResponseMessage?:string="no malware matches";
+  urlResponseMessage?:string=" ";
   
   fileToUpload: any | null = null;
-  fileResponseMessage?:string="Nothing scanned";
+  fileResponseMessage?:string=" ";
   fileStats:Stats | null = null;
   fileCheckStatus:string="";
 

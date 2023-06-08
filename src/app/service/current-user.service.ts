@@ -13,6 +13,8 @@ export class CurrentUserService {
   private apiGetCurrentUser = `${BASE_URL}current-user`;
   private apiChangePersonalData = `${BASE_URL}current-user/update-personal-information`;
   private apiDeleteAccount = `${BASE_URL}current-user/delete-account`;
+  private apiGetPoints = `${BASE_URL}current-user/get-points`;
+
 
 
   getCurrentUser(){
@@ -25,5 +27,7 @@ export class CurrentUserService {
   deleteAccount(){
     return this.http.delete<ApiResponseDto>(this.apiDeleteAccount);
   }
-
+  getCurrentUserPoints(){
+    return this.http.get<ApiResponseDto>(this.apiGetPoints);
+  }
 }

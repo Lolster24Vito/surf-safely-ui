@@ -29,13 +29,13 @@
   </div>
   
     <h3 class="quiz-title">Result</h3>
-  
+    <h5 *ngIf="quizPointsEarned!=-1" class="text-white">You earned {{quizPointsEarned}} points</h5>
     <div class="card">
       <div class="card-body">
         <p id="result">Correctly answered:{{quizCorrectPercentage.toFixed(2)}} %</p>
   
         <div class="progress">
-          <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"  style="width: {{quizCorrectPercentage.toFixed(2)}}%"></div>
+          <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"  style='width: {{quizCorrectPercentage.toFixed(2)}}%'></div>
         </div>
   
         <button type="button" class="btn btn-success" (click)="submitQuizAnswers()">Submit</button>

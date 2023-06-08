@@ -15,6 +15,7 @@ export class QuizComponent {
   quizAnswerFormGroup!:FormGroup;
   //0-100 used in progress-bar width and text
   quizCorrectPercentage:number=0;
+  quizPointsEarned:number=-1;
   constructor(
     private route:ActivatedRoute,
     private quizService:QuizService,
@@ -87,6 +88,7 @@ export class QuizComponent {
       next: (response) => {
         console.log(response);
         this.quizCorrectPercentage=response.data.correctnessPercentage*100;
+        this.quizPointsEarned=Math.trunc(response.data.correctnessPercentage*100);
       },
       error: (e) => console.error(e)
     }

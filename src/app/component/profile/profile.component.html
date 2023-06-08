@@ -2,8 +2,12 @@
     <div class="row justify-content-center mt-5">
         <div class="col-md-6">
             <div class="text-center">
-                <img src="https://pbs.twimg.com/media/FoC-xKKaEAAPpGg.jpg" alt="Profile Picture" class="profile-picture">
+                <fa-icon [icon]="faPenToSquare" routerLink="avatar-choose"/>
             </div>
+            <div class="text-center">
+                <img src={{userAvatar.photo}} alt="Profile Picture" class="profile-picture">
+            </div>
+
             <h2 class="text-center mt-3 text-white">User Profile</h2>
             <div class="mt-4 profile-info">
                 <p><strong>First Name:</strong> {{currentUser.firstName}}</p>
@@ -16,7 +20,7 @@
                 <a routerLink="delete" class="btn btn-danger">Delete Account</a>
             </div>
             <div class="mt-5 mx-auto text-center">
-                <a routerLink="/profile/change-password" class="btn me-4 " id="updateButton">Change password</a>
+                <a routerLink="/profile/change-password" class="btn me-4" id="updateButton">Change password</a>
             </div>
         </div>
     </div>
