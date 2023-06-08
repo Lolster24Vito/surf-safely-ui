@@ -1,4 +1,4 @@
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {Observable} from "rxjs";
 import {BASE_URL, USER_TOKEN_NAME} from "../config/config";
@@ -44,8 +44,7 @@ export class AuthenticationService {
   login(user: UserDto): Observable<ApiResponseDto> {
     return this.http.post<ApiResponseDto>(this.apiLoginUrl, user);
   }
-  logout(){
-    this.cookieService.delete('user_token');
+  logout(){   
    return this.http.get<ApiResponseDto>(this.apiLogoutUrl);
   }
   isLoggedIn(){

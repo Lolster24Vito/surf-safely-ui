@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
 
+  loginError:string="";
   user = new UserDto();
   token: string = '';
   constructor(private loginService: AuthenticationService,
@@ -48,7 +49,7 @@ export class LoginComponent {
         },
         error: (e) => {
           console.error(e);
-        alert("Error: Incorrect password or username ");
+          this.loginError="Error: Incorrect password or username ";
         }
       }
       );

@@ -83,7 +83,7 @@ setProfilePicture(id:number){
         this.errorMessage = response.error;
       }
       console.log(response,"make main");
-      //window.location.reload();
+      window.location.reload();
     },
     error: (e) => console.error(e)
   }

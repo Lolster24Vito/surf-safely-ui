@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {faClipboardQuestion, faCoffee, faHouse, faQuestion, faShield, faUser,faSignOut, faRankingStar} from "@fortawesome/free-solid-svg-icons";
+import {faClipboardQuestion, faCoffee, faHouse, faQuestion, faShield, faUser,faSignOut, faRankingStar, faRightToBracket} from "@fortawesome/free-solid-svg-icons";
 import { AuthenticationService } from '../../service/authentication.service';
 import { CookieService } from 'ngx-cookie-service';
 import { CurrentUserService } from '../../service/current-user.service';
@@ -19,6 +19,7 @@ export class NavbarComponent implements OnInit {
   protected readonly faUser = faUser;
   protected readonly faSignOut = faSignOut;
   protected readonly faRankingStar=faRankingStar;
+  protected readonly faRightToBracket=faRightToBracket;
   userPoints:number=0;
   username:string="";
   constructor(private loginService: AuthenticationService,
@@ -26,28 +27,32 @@ export class NavbarComponent implements OnInit {
    
   }
   ngOnInit(): void {
-    this.currentUserService.getCurrentUserPoints().subscribe({
-      next:(response)=>{
-        console.log(response);
-      this.userPoints = response.data.money;
-    },
-    error:(e)=>console.error(e)
-  }
-    );
-    this.currentUserService.getCurrentUser().subscribe({
-      next:(response)=>{
-        console.log(response.data.username);
-        this.username=response.data.username;
-    },
-    error:(e)=>console.error(e)
-    })
+    if(this.loginService.isLoggedIn()==true){
+      
+      this.currentUserService.getCurrentUserPoints().subscribe({
+        next:(response)=>{
+          console.log(response);
+          this.userPoints = response.data.money;
+        },
+        error:(e)=>{console.error(e);}
+      }
+      );
+      this.currentUserService.getCurrentUser().subscribe({
+        next:(response)=>{
+          console.log(response.data.username);
+          this.username=response.data.username;
+        },
+        error:(e)=>{console.error(e);}
+      });
+    }
   }
   logout(){
     this.loginService.logout().subscribe({
       next: (response) => {
         console.log(response);
+        this.cookieService.delete('user_token');
       },
-      error: (e) => console.error(e)
+      error: (e) => {console.error(e);}
     }
     );
   }

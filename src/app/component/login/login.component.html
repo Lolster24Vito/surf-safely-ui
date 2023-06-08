@@ -1,5 +1,6 @@
-<div>
-  <form [formGroup]="loginForm" (ngSubmit)="login()" class="container w-25" >
+<div class="container w-25">
+  <h5 class="text-danger">{{loginError}}</h5>
+  <form [formGroup]="loginForm" (ngSubmit)="login()"  >
     <div class="mb-3">
       <label for="usernameInput" class="form-label">Username</label>
       <input  type="text" class="form-control" id="usernameInput" formControlName="usernameInput">

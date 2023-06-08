@@ -22,18 +22,22 @@ constructor(private leaderboardService: LeaderboardService,private authService:A
 ngOnInit(): void {
   this.getLeaderboardList();
 }
-private getLeaderboardList(){
-this.leaderboardService.getLeaderboardList().subscribe(data=>{
+private  getLeaderboardList(){
+this.leaderboardService.getLeaderboardList().subscribe(async data=>{
   //data.data is here because of ApiResponseDTO object in the spring boot backend 
   //this.leaderboardRows = data.data;
   this.userPoints =data.data;
   for (let i=0;i<this.userPoints.length;i++){
-    this.leaderboardService.getUserById(this.userPoints[i].userId).subscribe(
+   await this.leaderboardService.getUserById(this.userPoints[i].userId).subscribe(
       data =>
       {
       this.leaderboardRows.unshift({username:data.data.username,totalPoints:this.userPoints[i].score});
+      this.leaderboardRows.sort((a,b) => {
+        return  b.totalPoints - a.totalPoints ;
+      });
       });
   }
+
 });
 }
 

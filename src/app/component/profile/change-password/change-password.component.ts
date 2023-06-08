@@ -10,7 +10,7 @@ import { AuthenticationService } from '../../../service/authentication.service';
 })
 export class ChangePasswordComponent {
   changePasswordForm!: FormGroup;
-
+  errorText:string="";
   constructor(private authenticationService: AuthenticationService,
     private router:Router,
     private formBuilder:FormBuilder
@@ -33,7 +33,7 @@ export class ChangePasswordComponent {
        console.log(response,"next");
        this.router.navigate(['/profile']);
       },
-      error: (e) =>{ alert("incorrect password");}
+      error: (e) =>{ this.errorText="Incorrect old password";}
     }
     );
   }

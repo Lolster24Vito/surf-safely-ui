@@ -35,7 +35,7 @@ export class RegisterComponent {
     this.user.username = this.registerForm.value.username;
     this.user.password = this.registerForm.value.password;
     this.user.email = this.registerForm.value.email;
-    this.user.roleId = 1
+    this.user.roleId = 2;
     console.log(this.user);
 
     this.loginService.register(this.user)

@@ -50,6 +50,12 @@
         <span>Profile</span>
       </a>
     </li>
+    <li class="nav-item" *ngIf="isLoggedIn()==false">
+      <a class="nav-link d-flex flex-column align-items-center" routerLink="login" href="#">
+        <fa-icon [icon]="faRightToBracket"/>
+        <span>Login</span>
+      </a>
+    </li>
     <li class="nav-item" *ngIf="isLoggedIn()==true">
       <a class="nav-link d-flex flex-column align-items-center" (click)="logout()" href="#">
         <fa-icon [icon]="faSignOut"/>
