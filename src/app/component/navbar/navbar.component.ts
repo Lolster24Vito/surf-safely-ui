@@ -52,7 +52,11 @@ export class NavbarComponent implements OnInit {
         console.log(response);
         this.cookieService.delete('user_token');
       },
-      error: (e) => {console.error(e);}
+      error: (e) => {
+        console.error(e);
+        this.cookieService.delete('user_token');
+      
+      }
     }
     );
   }

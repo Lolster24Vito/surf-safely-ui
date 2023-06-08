@@ -7,14 +7,17 @@
             <div class="text-center">
                 <img src={{userAvatar.photo}} alt="Profile Picture" class="profile-picture">
             </div>
-
             <h2 class="text-center mt-3 text-white">User Profile</h2>
+            
             <div class="mt-4 profile-info">
                 <p><strong>First Name:</strong> {{currentUser.firstName}}</p>
                 <p><strong>Last Name:</strong> {{currentUser.lastName}}</p>
                 <p><strong>Username:</strong> {{currentUser.username}}</p>
                 <p><strong>Email:</strong> {{currentUser.email}}</p>
             </div>
+            <h5 class="text-white text-center">Total points: <span class="text-warning">{{totalPoints}}</span></h5>
+            <h5 class="text-white text-center">Your current points: <span class="text-warning">{{currentPoints}}</span></h5>
+
             <div class="mt-5 mx-auto text-center">
                 <a routerLink="/profile/update" class="btn me-4 " id="updateButton">Update Personal Information</a>
                 <a routerLink="delete" class="btn btn-danger">Delete Account</a>
