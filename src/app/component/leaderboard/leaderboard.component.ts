@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { LeaderboardRow,UserPoints } from 'src/app/model/leaderboard-row';
-import { UserDto } from 'src/app/service/authentication.service';
+import { AuthenticationService, UserDto } from '../../service/authentication.service';
 import { LeaderboardService } from 'src/app/service/leaderboard.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-leaderboard',
@@ -12,7 +13,12 @@ export class LeaderboardComponent {
 
 leaderboardRows:LeaderboardRow[]=[];
 userPoints!:UserPoints[];
-constructor(private leaderboardService: LeaderboardService){}
+constructor(private leaderboardService: LeaderboardService,private authService:AuthenticationService
+  ,private router:Router){
+  if (!authService.isLoggedIn()) {
+    router.navigate(['login']);
+  }
+}
 ngOnInit(): void {
   this.getLeaderboardList();
 }

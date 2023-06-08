@@ -59,13 +59,13 @@
                {{fileResponseMessage}}
             </h5>
             <ul class="text-warning" *ngIf="fileStats!=null&&fileScanned" >
-                <li>harmless: {{fileStats.harmless}}</li>
-                <li>suspicious: {{fileStats.suspicious}}</li>
-                <li>failure: {{fileStats.failure}}</li>
-                <li>malicious: {{fileStats.malicious}}</li>
-                <li>undetected: {{fileStats.undetected}}</li>
-                <li>confirmedTimeout: {{fileStats["type-unsupported"]}}</li>
-                <li>type unsupported: {{ fileStats["confirmed-timeout"]
+                <li *ngIf="fileStats.harmless!=0">harmless: {{fileStats.harmless}}</li>
+                <li *ngIf="fileStats.suspicious!=0">suspicious: {{fileStats.suspicious}}</li>
+                <li *ngIf="fileStats.failure!=0">failure: {{fileStats.failure}}</li>
+                <li *ngIf="fileStats.malicious!=0">malicious: {{fileStats.malicious}}</li>
+                <li *ngIf="fileStats.undetected!=0">undetected: {{fileStats.undetected}}</li>
+                <li *ngIf='fileStats["type-unsupported"]!=0'>confirmedTimeout: {{fileStats["type-unsupported"]}}</li>
+                <li *ngIf='fileStats["confirmed-timeout"]!=0'>type unsupported: {{ fileStats["confirmed-timeout"]
                 }}
                     </li>
 

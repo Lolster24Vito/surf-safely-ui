@@ -13,13 +13,24 @@ export class AvatarChooseComponent implements OnInit {
 userAvatars!:Avatar[];
 avatarsToBuy!:Avatar[];
 errorMessage:string = "";
+userAvatar:Avatar={id:1} as Avatar;
 constructor(private avatarService: AvatarService,private authService:AuthenticationService,private router:Router
   ){
     if (!authService.isLoggedIn()) {
       router.navigate(['login']);
     }
+    this.getCurrentUserAvatar();
     this.getCurrentUserAvatars();
 }
+  getCurrentUserAvatar() {
+    this.avatarService.getCurrentUserAvatar().subscribe({
+      next: (response) => {
+        this.userAvatar=response.data;
+        console.log(this.userAvatar,"avatar");
+      },
+      error: (e) => console.error(e)
+    });
+  }
 ngOnInit(): void {
   
 }
@@ -59,6 +70,7 @@ private getAvatarsToBuy(){
       if(response.error.length>0){
         this.errorMessage = response.error;
       }
+      window.location.reload();
     },
     error: (e) => console.error(e)
   }
@@ -71,6 +83,7 @@ setProfilePicture(id:number){
         this.errorMessage = response.error;
       }
       console.log(response,"make main");
+      //window.location.reload();
     },
     error: (e) => console.error(e)
   }

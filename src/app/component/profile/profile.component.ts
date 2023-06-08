@@ -33,6 +33,7 @@ export class ProfileComponent {
   getCurrentUser(){
      this.authenticationService.getCurrentUser().subscribe({
       next: (response) => {
+        console.log(response,"currentUserResponse");
         this.currentUser=response.data;
         console.log(this.currentUser);
       },

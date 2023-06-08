@@ -41,14 +41,14 @@ export class LoginComponent {
           this.token = response.data.token;
          //1 @param expires  Number of days until the cookies expires or an actual `Date`
           this.cookieService.set(USER_TOKEN_NAME, this.token,0.5);
-          this.router.navigate(['']);
+          this.router.navigate(['']).then(()=>{window.location.reload();});
 
           //localStorage.setItem("expires_at", JSON.stringify(expiresAt.valueOf()) );
 
         },
         error: (e) => {
           console.error(e);
-        alert("Error: " + e.message);
+        alert("Error: Incorrect password or username ");
         }
       }
       );

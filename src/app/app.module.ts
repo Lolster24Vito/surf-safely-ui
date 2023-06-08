@@ -25,6 +25,7 @@ import { RegisterComponent } from './component/register/register.component';
 import { LeaderboardComponent } from './component/leaderboard/leaderboard.component';
 import { ChangePasswordComponent } from './component/profile/change-password/change-password.component';
 import { AvatarChooseComponent } from './component/profile/avatar-choose/avatar-choose.component';
+import { HomeComponent } from './component/home/home.component';
 
 
 
@@ -44,6 +45,7 @@ import { AvatarChooseComponent } from './component/profile/avatar-choose/avatar-
     LeaderboardComponent,
     ChangePasswordComponent,
     AvatarChooseComponent,
+    HomeComponent,
   ],
   imports: [
     CommonModule,
@@ -57,6 +59,7 @@ import { AvatarChooseComponent } from './component/profile/avatar-choose/avatar-
     FormsModule,
     HttpClientModule,
     RouterModule.forRoot([
+      {path:'',component:HomeComponent},
       { path: 'login', component: LoginComponent },
       { path: 'quiz-list', component: QuizListComponent },
       { path:'quiz/add',component: QuizAddComponent},

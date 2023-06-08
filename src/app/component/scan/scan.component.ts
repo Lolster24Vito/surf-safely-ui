@@ -44,7 +44,7 @@ export class ScanComponent {
       console.log("scan response",response);
       if(response.data.matches){
 
-        this.urlResponseMessage="*Scan found this as:"+response.data.matches[0].threatType;
+        this.urlResponseMessage="*Scan found this as: "+response.data.matches[0].threatType;
       }
       else{
         this.urlResponseMessage="* No malware matches";
