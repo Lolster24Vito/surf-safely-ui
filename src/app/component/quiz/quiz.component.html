@@ -5,42 +5,42 @@
     </div>
 
 
-    <div id="idk" [formGroup]="quizAnswerFormGroup"> 
+    <div id="idk" [formGroup]="quizAnswerFormGroup">
 
     <div class="card border-danger mb-4" *ngFor="let question of quiz.questionDtoList;let i = index">
-  
+
       <div class="d-flex justify-content-between align-items-center card-header text-white question-title" >
         <span>Question {{i+1}}</span>
       </div>
         <div class="card-body bg-dark text-white">
           <p>{{question.questionText}}</p>
-  
+
           <div class="form-check" *ngFor="let answer of question.answerDtoList; let j=index">
-            <input class="form-check-input" type="checkbox" [formControlName]="'question-'+i+' answer-' + j" value="{{answer.id}}" >
+            <input class="form-check-input" type="checkbox" [formControlName]="'question-'+i+' answer-' + j" [value]="answer.id">
             <label class="form-check-label">
               {{answer.text}}
             </label>
           </div>
 
+
         </div>
-  
-      
+
+
     </div>
   </div>
-  
+
     <h3 class="quiz-title">Result</h3>
     <h5 *ngIf="quizPointsEarned!=-1" class="text-white">You earned {{quizPointsEarned}} points</h5>
     <div class="card">
       <div class="card-body">
         <p id="result">Correctly answered:{{quizCorrectPercentage.toFixed(2)}} %</p>
-  
+
         <div class="progress">
           <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"  style='width: {{quizCorrectPercentage.toFixed(2)}}%'></div>
         </div>
-  
+
         <button type="button" class="btn btn-success" (click)="submitQuizAnswers()">Submit</button>
       </div>
     </div>
-    
+
   </div>
-    
